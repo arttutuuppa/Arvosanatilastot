@@ -1,0 +1,70 @@
+//PÄÄOHJELMA
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Paaohjelma {
+
+    public static void main(String[] args) {
+        Scanner lukija = new Scanner(System.in);
+        ArrayList<Pisteet> pisteet = new ArrayList<>();
+
+        // Tee sovelluksesi tänne -- kannattaa harkita sovelluksen pilkkomista
+        // useampaan luokkaan.
+        System.out.println("Syötä yhteispisteet, -1 lopettaa:");
+        while (true) {
+            int luettu = Integer.parseInt(lukija.nextLine());
+            if (luettu == -1) {
+                break;
+            }
+            if (luettu < 0 || luettu > 100) {
+                continue;
+            }
+            pisteet.add(new Pisteet(luettu));
+            
+        }
+        
+        
+        //ArrayList<Pisteet> pisteet = new ArrayList<>();
+        
+        double ka = pisteet.stream()
+                .map(arvo -> pisteet.getArvo())
+                .average()
+                .getAsDouble();
+                
+                
+        
+    }
+}
+
+
+
+
+
+-- 
+//LUOKKA PISTEITÄ VARTEN
+import java.util.ArrayList;
+
+public class Pisteet {
+    private int arvo;
+    private ArrayList<Pisteet> lista; 
+    
+    
+    public Pisteet (int arvo) {
+        this.arvo = arvo;
+        this.lista = new ArrayList<>();
+    }
+
+    public int getArvo() {
+        return arvo;
+    }
+    
+    //public void lisaa(arvo) {
+      //  lista.add(this.arvo);
+    //}
+    double ka = pisteet.stream()
+                .map(arvo -> pisteet.getArvo())
+                .average()
+                .getAsDouble();
+    
+            
+}
